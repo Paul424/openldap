@@ -1,0 +1,7 @@
+namespace: ldap
+namePrefix: dev-
+resources:
+- namespace.yaml
+- configmap.yaml
+- service.yaml
+- deployment.yaml

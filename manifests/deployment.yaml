@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openldap
+  namespace: ldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openldap
+  template:
+    metadata:
+      labels:
+        app: openldap
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        runAsGroup: 0
+        fsGroup: 0
+      # imagePullSecrets:
+      # - name: private-registry
+      containers:
+        - name: openldap
+          # image: index.docker.io/bitnami/openldap:2.6
+          # image: registry1.dso.mil/ironbank/bitnami/openldap:2.6.3
+          image: quay.io/perifery/bitnami-openldap:2.6.9
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 1389
+              name: ldap
+          env:
+            # For more environment variables, see:
+            # https://hub.docker.com/r/bitnami/openldap
+            - name: LDAP_ROOT
+              value: dc=example,dc=org
+            - name: LDAP_ADMIN_USERNAME
+              value: admin
+            - name: LDAP_ADMIN_PASSWORD
+              value: admin
+            - name: LDAP_CUSTOM_LDIF_DIR
+              value: /ldifs
+          volumeMounts:
+            - name: bootstrap
+              mountPath: /ldifs
+              readOnly: true
+      volumes:
+        - name: bootstrap
+          configMap:
+            name: openldap-bootstrap

@@ -1,0 +1,108 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openldap-bootstrap
+  namespace: ldap
+data:
+  01-base.ldif: |-
+    dn: dc=example,dc=org
+    objectClass: top
+    objectClass: dcObject
+    objectClass: organization
+    o: Example Organization
+    dc: example
+
+    dn: ou=users,dc=example,dc=org
+    objectClass: organizationalUnit
+    ou: users
+
+    dn: ou=groups,dc=example,dc=org
+    objectClass: organizationalUnit
+    ou: groups
+
+  02-users.ldif: |-
+    dn: uid=alice,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Alice Doe
+    sn: Doe
+    givenName: Alice
+    uid: alice
+    mail: alice@example.org
+    userPassword: password
+
+    dn: uid=bob,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Bob Smith
+    sn: Smith
+    givenName: Bob
+    uid: bob
+    mail: bob@example.org
+    userPassword: password
+
+    dn: uid=carol,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Carol Jones
+    sn: Jones
+    givenName: Carol
+    uid: carol
+    mail: carol@example.org
+    userPassword: password
+
+    dn: uid=admin,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Platform Admin
+    sn: Doe
+    givenName: Admin
+    uid: admin
+    mail: admin@example.org
+    userPassword: password
+
+  03-groups.ldif: |-
+    dn: cn=platform-admin,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: platform-admin
+    uniqueMember: uid=admin,ou=users,dc=example,dc=org
+
+    dn: cn=alpha-admins,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: alpha-admins
+    uniqueMember: uid=alice,ou=users,dc=example,dc=org
+
+    dn: cn=alpha-developers,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: alpha-developers
+    uniqueMember: uid=bob,ou=users,dc=example,dc=org
+
+    dn: cn=alpha-viewers,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: alpha-viewers
+    uniqueMember: uid=carol,ou=users,dc=example,dc=org
+
+    dn: cn=zulu-admins,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: zulu-admins
+    uniqueMember: uid=carol,ou=users,dc=example,dc=org
+
+    dn: cn=zulu-developers,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: groupOfUniqueNames
+    cn: zulu-developers
+    uniqueMember: uid=bob,ou=users,dc=example,dc=org
