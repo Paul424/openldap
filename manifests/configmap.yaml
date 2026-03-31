@@ -32,7 +32,7 @@ data:
     givenName: Fred
     uid: fred
     mail: fred@example.org
-    userPassword: fred
+    userPassword: {MD5}VwqQv7+MfqtdxdTiaDLVsQ==
 
     dn: uid=wilma,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
@@ -44,7 +44,7 @@ data:
     givenName: Wilma
     uid: wilma
     mail: wilma@example.org
-    userPassword: wilma
+    userPassword: {MD5}Ok3ByQy+WQvuGa6VJDTwTA==
     
     dn: uid=barney,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
@@ -56,7 +56,7 @@ data:
     givenName: Barney
     uid: barney
     mail: barney@example.org
-    userPassword: barney
+    userPassword: {MD5}c9lMoJ3n0juFMnOwNcvHUg==
 
     dn: uid=betty,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
@@ -68,7 +68,7 @@ data:
     givenName: Betty
     uid: betty
     mail: betty@example.org
-    userPassword: betty
+    userPassword: {MD5}grBUvYP/rZts+L25jOPMLw==
 
   03-groups.ldif: |-
     dn: cn=infrastructure-operators,ou=groups,dc=example,dc=org
