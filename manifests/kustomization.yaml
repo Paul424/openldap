@@ -1,4 +1,4 @@
-namespace: ldap
+namespace: openldap
 namePrefix: dev-
 resources:
 - namespace.yaml
