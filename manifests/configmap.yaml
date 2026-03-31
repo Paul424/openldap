@@ -22,87 +22,70 @@ data:
     ou: groups
 
   02-users.ldif: |-
-    dn: uid=alice,ou=users,dc=example,dc=org
+    dn: uid=fred,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
     objectClass: organizationalPerson
     objectClass: person
     objectClass: top
-    cn: Alice Doe
-    sn: Doe
-    givenName: Alice
-    uid: alice
-    mail: alice@example.org
-    userPassword: password
+    cn: Fred Flintstone
+    sn: Flintstone
+    givenName: Fred
+    uid: fred
+    mail: fred@example.org
+    userPassword: fred
 
-    dn: uid=bob,ou=users,dc=example,dc=org
+    dn: uid=wilma,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
     objectClass: organizationalPerson
     objectClass: person
     objectClass: top
-    cn: Bob Smith
-    sn: Smith
-    givenName: Bob
-    uid: bob
-    mail: bob@example.org
-    userPassword: password
+    cn: Wilma Flintstone
+    sn: Flintstone
+    givenName: Wilma
+    uid: wilma
+    mail: wilma@example.org
+    userPassword: wilma
+    
+    dn: uid=barney,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Barney Rubble
+    sn: Rubble
+    givenName: Barney
+    uid: barney
+    mail: barney@example.org
+    userPassword: barney
 
-    dn: uid=carol,ou=users,dc=example,dc=org
+    dn: uid=betty,ou=users,dc=example,dc=org
     objectClass: inetOrgPerson
     objectClass: organizationalPerson
     objectClass: person
     objectClass: top
-    cn: Carol Jones
-    sn: Jones
-    givenName: Carol
-    uid: carol
-    mail: carol@example.org
-    userPassword: password
-
-    dn: uid=admin,ou=users,dc=example,dc=org
-    objectClass: inetOrgPerson
-    objectClass: organizationalPerson
-    objectClass: person
-    objectClass: top
-    cn: Platform Admin
-    sn: Doe
-    givenName: Admin
-    uid: admin
-    mail: admin@example.org
-    userPassword: password
+    cn: Betty Rubble
+    sn: Rubble
+    givenName: Betty
+    uid: betty
+    mail: betty@example.org
+    userPassword: betty
 
   03-groups.ldif: |-
-    dn: cn=platform-admin,ou=groups,dc=example,dc=org
+    dn: cn=infrastructure-operators,ou=groups,dc=example,dc=org
     objectClass: top
     objectClass: groupOfUniqueNames
-    cn: platform-admin
-    uniqueMember: uid=admin,ou=users,dc=example,dc=org
+    cn: infrastructure-operators
+    uniqueMember: uid=wilma,ou=users,dc=example,dc=org
 
-    dn: cn=alpha-admins,ou=groups,dc=example,dc=org
+    dn: cn=application-operators,ou=groups,dc=example,dc=org
     objectClass: top
     objectClass: groupOfUniqueNames
-    cn: alpha-admins
-    uniqueMember: uid=alice,ou=users,dc=example,dc=org
+    cn: application-operators
+    uniqueMember: uid=barney,ou=users,dc=example,dc=org
 
-    dn: cn=alpha-developers,ou=groups,dc=example,dc=org
+    dn: cn=platform-administrators,ou=groups,dc=example,dc=org
     objectClass: top
     objectClass: groupOfUniqueNames
-    cn: alpha-developers
-    uniqueMember: uid=bob,ou=users,dc=example,dc=org
-
-    dn: cn=alpha-viewers,ou=groups,dc=example,dc=org
-    objectClass: top
-    objectClass: groupOfUniqueNames
-    cn: alpha-viewers
-    uniqueMember: uid=carol,ou=users,dc=example,dc=org
-
-    dn: cn=zulu-admins,ou=groups,dc=example,dc=org
-    objectClass: top
-    objectClass: groupOfUniqueNames
-    cn: zulu-admins
-    uniqueMember: uid=carol,ou=users,dc=example,dc=org
-
-    dn: cn=zulu-developers,ou=groups,dc=example,dc=org
-    objectClass: top
-    objectClass: groupOfUniqueNames
-    cn: zulu-developers
-    uniqueMember: uid=bob,ou=users,dc=example,dc=org
+    cn: platform-administrators
+    uniqueMember: uid=betty,ou=users,dc=example,dc=org
+    uniqueMember: uid=fred,ou=users,dc=example,dc=org

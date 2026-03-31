@@ -25,14 +25,15 @@ spec:
         - name: openldap
           # image: index.docker.io/bitnami/openldap:2.6
           # image: registry1.dso.mil/ironbank/bitnami/openldap:2.6.3
-          image: quay.io/perifery/bitnami-openldap:2.6.9
+          # image: quay.io/perifery/bitnami-openldap:2.6.9
+          image: paul424/bitnami-openldap:2.6.9
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 1389
               name: ldap
           env:
             # For more environment variables, see:
-            # https://hub.docker.com/r/bitnami/openldap
+            # https://github.com/jp-gouin/helm-openldap => https://github.com/bitnami/containers/tree/main/bitnami/openldap
             - name: LDAP_ROOT
               value: dc=example,dc=org
             - name: LDAP_ADMIN_USERNAME
