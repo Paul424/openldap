@@ -70,6 +70,18 @@ data:
     mail: betty@example.org
     userPassword: {MD5}grBUvYP/rZts+L25jOPMLw==
 
+    dn: uid=pebbles,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: organizationalPerson
+    objectClass: person
+    objectClass: top
+    cn: Pebbles Flintstone
+    sn: Flintstone
+    givenName: Pebbles
+    uid: pebbles
+    mail: pebbles@example.org
+    userPassword: {MD5}5KqOqyKW4noyc1TLsLLF0g==
+
   03-groups.ldif: |-
     dn: cn=infrastructure-operators,ou=groups,dc=example,dc=org
     objectClass: top
@@ -82,6 +94,7 @@ data:
     objectClass: groupOfUniqueNames
     cn: application-operators
     uniqueMember: uid=barney,ou=users,dc=example,dc=org
+    uniqueMember: uid=pebbles,ou=users,dc=example,dc=org
 
     dn: cn=platform-administrators,ou=groups,dc=example,dc=org
     objectClass: top
